@@ -51,7 +51,7 @@ class SplashScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     const SizedBox(height: 20),
-                    //  LOGO + EFFECT(Faqih)
+                    //  LOGO + EFFECT(faqih)
                     Column(
                       children: [
                         Container(
