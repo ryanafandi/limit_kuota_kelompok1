@@ -8,22 +8,16 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-            colors: [
-              Color(0xFF4FACFE),
-              Color(0xFF00F2FE),
-            ],
+            colors: [Color(0xFF4FACFE), Color(0xFF00F2FE)],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),
         ),
 
-        child: Stack( 
+        child: Stack(
           children: [
-
-            
             Positioned(
               top: -60,
               left: -40,
@@ -56,7 +50,6 @@ class SplashScreen extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-
                     const SizedBox(height: 20),
                     //  LOGO + EFFECT(Faqih)
                     Column(
@@ -97,10 +90,7 @@ class SplashScreen extends StatelessWidget {
                         const Text(
                           "Pantau penggunaan internet dengan mudah & cepat",
                           textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color: Colors.white70,
-                            fontSize: 14,
-                          ),
+                          style: TextStyle(color: Colors.white70, fontSize: 14),
                         ),
                       ],
                     ),
@@ -108,8 +98,6 @@ class SplashScreen extends StatelessWidget {
                     //  BUTTON + FOOTER
                     Column(
                       children: [
-
-                        // BUTTON WRAPPER AGAR LEBIH PREMIUM
                         Container(
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(30),
@@ -134,24 +122,19 @@ class SplashScreen extends StatelessWidget {
                               backgroundColor: Colors.white,
                               foregroundColor: Colors.blue,
                               elevation: 0,
-                              minimumSize:
-                                  const Size(double.infinity, 55),
+                              minimumSize: const Size(double.infinity, 55),
                               shape: RoundedRectangleBorder(
-                                borderRadius:
-                                    BorderRadius.circular(30),
+                                borderRadius: BorderRadius.circular(30),
                               ),
                             ),
                             child: const Row(
-                              mainAxisAlignment:
-                                  MainAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Icon(Icons.rocket_launch_rounded),
                                 SizedBox(width: 8),
                                 Text(
                                   "Mulai Sekarang",
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                  ),
+                                  style: TextStyle(fontWeight: FontWeight.bold),
                                 ),
                               ],
                             ),
@@ -162,10 +145,7 @@ class SplashScreen extends StatelessWidget {
 
                         const Text(
                           "v1.0.0",
-                          style: TextStyle(
-                            color: Colors.white54,
-                            fontSize: 12,
-                          ),
+                          style: TextStyle(color: Colors.white54, fontSize: 12),
                         ),
 
                         const SizedBox(height: 10),
