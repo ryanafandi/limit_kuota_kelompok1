@@ -5,7 +5,7 @@ import 'package:limit_kuota/src/core/data/database_helper.dart';
 import 'package:limit_kuota/src/core/services/intent_helper.dart';
 import 'package:limit_kuota/src/features/monitoring/history_page.dart';
 
-// Intan Saraswati
+// -----
 class Network extends StatefulWidget {
   const Network({super.key});
 
@@ -21,7 +21,6 @@ class _NetworkState extends State<Network> {
 
   Future<void> fetchUsage() async {
     try {
-      // Sekarang result adalah Map
       final Map<dynamic, dynamic> result = await platform.invokeMethod(
         'getTodayUsage',
       );
@@ -41,10 +40,11 @@ class _NetworkState extends State<Network> {
         mobileBytes,
       );
 
-      // Tambahan Cek limit khusus mobile data //
+      // --- Cek limit khusus mobile data 
       await checkLimitAndWarn(mobileBytes);
       //--------------------------------------//
-
+      // ---
+      
       setState(() {
         wifiUsage = _formatBytes(result['wifi']);
         mobileUsage = _formatBytes(result['mobile']);
@@ -65,7 +65,7 @@ class _NetworkState extends State<Network> {
     return "${mb.toStringAsFixed(2)} MB";
   }
 
-  //-----------------------
+  // ----------
   double _getProgress(String value) {
     try {
       List<String> parts = value.split(" ");
