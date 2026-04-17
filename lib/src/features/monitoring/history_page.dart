@@ -32,7 +32,7 @@ class _HistoryPageState extends State<HistoryPage> {
     return "${mb.toStringAsFixed(2)} MB";
   }
 
-  // ✅ tambahan visual (tidak ubah logic)
+  
   double _getProgress(Map item) {
     try {
       int wifi = item['wifi'] ?? 0;
@@ -150,3 +150,62 @@ class _HistoryPageState extends State<HistoryPage> {
                           ),
 
                           const SizedBox(height: 14),
+
+                          //  DATA SECTION(ryan)
+                          Row(
+                            mainAxisAlignment:
+                                MainAxisAlignment.spaceBetween,
+                            children: [
+                              Row(
+                                children: [
+                                  const Icon(Icons.wifi,
+                                      size: 18, color: Colors.blue),
+                                  const SizedBox(width: 6),
+                                  Text(
+                                    _formatBytes(item['wifi']),
+                                    style: const TextStyle(
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                children: [
+                                  const Icon(Icons.signal_cellular_alt,
+                                      size: 18, color: Colors.purple),
+                                  const SizedBox(width: 6),
+                                  Text(
+                                    _formatBytes(item['mobile']),
+                                    style: const TextStyle(
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+
+                          const SizedBox(height: 14),
+
+                          //  PROGRESS BAR
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(10),
+                            child: LinearProgressIndicator(
+                              value: _getProgress(item),
+                              minHeight: 6,
+                              backgroundColor: Colors.grey.shade200,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                );
+              },
+            );
+          },
+        ),
+      ),
+    );
+  }
+}
