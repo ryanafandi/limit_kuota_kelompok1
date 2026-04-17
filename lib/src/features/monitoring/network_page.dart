@@ -5,7 +5,7 @@ import 'package:limit_kuota/src/core/data/database_helper.dart';
 import 'package:limit_kuota/src/core/services/intent_helper.dart';
 import 'package:limit_kuota/src/features/monitoring/history_page.dart';
 
-// intan
+// Intan Saraswati
 class Network extends StatefulWidget {
   const Network({super.key});
 
@@ -21,20 +21,29 @@ class _NetworkState extends State<Network> {
 
   Future<void> fetchUsage() async {
     try {
+      // Sekarang result adalah Map
       final Map<dynamic, dynamic> result = await platform.invokeMethod(
         'getTodayUsage',
       );
 
+      // --- LOGIKA PENYIMPANAN KE SQLITE ---
+      // Ambil tanggal hari ini dalam format YYYY-MM-DD
       String todayDate = DateFormat('yyyy-MM-dd').format(DateTime.now());
 
+      // Ambil nilai integer (raw bytes) dari result
       int wifiBytes = result['wifi'] ?? 0;
       int mobileBytes = result['mobile'] ?? 0;
 
+      // Simpan ke database (akan update jika tanggal hari ini sudah ada)
       await DatabaseHelper.instance.insertOrUpdate(
         todayDate,
         wifiBytes,
         mobileBytes,
       );
+
+      // Tambahan Cek limit khusus mobile data //
+      await checkLimitAndWarn(mobileBytes);
+      //--------------------------------------//
 
       setState(() {
         wifiUsage = _formatBytes(result['wifi']);
@@ -56,10 +65,21 @@ class _NetworkState extends State<Network> {
     return "${mb.toStringAsFixed(2)} MB";
   }
 
+  //-----------------------
   double _getProgress(String value) {
     try {
-      double number = double.parse(value.split(" ")[0]);
-      double progress = number / 2; // asumsi 2GB
+      List<String> parts = value.split(" ");
+      double number = double.parse(parts[0]);
+      String unit = parts[1];
+
+      // Konversi ke GB
+      if (unit == "MB") {
+        number = number / 1024;
+      }
+
+      double limitGB = 2; // asumsi 2GB
+      double progress = number / limitGB;
+
       if (progress > 1) return 1;
       return progress;
     } catch (e) {
@@ -113,7 +133,7 @@ class _NetworkState extends State<Network> {
                 color: Colors.blue.withOpacity(0.1),
                 shape: BoxShape.circle,
               ),
-              child: const Icon(Icons.sync, size: 18, color: Colors.blue),
+              child: const Icon(Icons.data_usage, size: 18, color: Colors.blue),
             ),
             const SizedBox(width: 10),
             const Text(
@@ -124,7 +144,7 @@ class _NetworkState extends State<Network> {
         ),
 
         actions: [
-          //  HISTORY
+          //  Tombol untuk menuju halaman HISTORY
           IconButton(
             icon: const Icon(Icons.history),
             onPressed: () {
