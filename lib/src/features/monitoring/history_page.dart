@@ -32,7 +32,6 @@ class _HistoryPageState extends State<HistoryPage> {
     return "${mb.toStringAsFixed(2)} MB";
   }
 
-  
   double _getProgress(Map item) {
     try {
       int wifi = item['wifi'] ?? 0;
@@ -76,10 +75,7 @@ class _HistoryPageState extends State<HistoryPage> {
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-            colors: [
-              Color(0xFFEFF6FF),
-              Color(0xFFF8FAFC),
-            ],
+            colors: [Color(0xFFEFF6FF), Color(0xFFF8FAFC)],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
           ),
@@ -106,7 +102,9 @@ class _HistoryPageState extends State<HistoryPage> {
 
                 return Container(
                   margin: const EdgeInsets.symmetric(
-                      horizontal: 14, vertical: 8),
+                    horizontal: 14,
+                    vertical: 8,
+                  ),
 
                   child: Card(
                     elevation: 6,
@@ -153,13 +151,15 @@ class _HistoryPageState extends State<HistoryPage> {
 
                           //  DATA SECTION(ryan)
                           Row(
-                            mainAxisAlignment:
-                                MainAxisAlignment.spaceBetween,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Row(
                                 children: [
-                                  const Icon(Icons.wifi,
-                                      size: 18, color: Colors.blue),
+                                  const Icon(
+                                    Icons.wifi,
+                                    size: 18,
+                                    color: Colors.blue,
+                                  ),
                                   const SizedBox(width: 6),
                                   Text(
                                     _formatBytes(item['wifi']),
@@ -171,8 +171,11 @@ class _HistoryPageState extends State<HistoryPage> {
                               ),
                               Row(
                                 children: [
-                                  const Icon(Icons.signal_cellular_alt,
-                                      size: 18, color: Colors.purple),
+                                  const Icon(
+                                    Icons.signal_cellular_alt,
+                                    size: 18,
+                                    color: Colors.purple,
+                                  ),
                                   const SizedBox(width: 6),
                                   Text(
                                     _formatBytes(item['mobile']),
