@@ -104,7 +104,7 @@ class _NetworkState extends State<Network> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        //  ICON + TEXT 
+        //  ICON + TEXT
         title: Row(
           children: [
             Container(
@@ -113,7 +113,7 @@ class _NetworkState extends State<Network> {
                 color: Colors.blue.withOpacity(0.1),
                 shape: BoxShape.circle,
               ),
-              child: const Icon(Icons.data_usage, size: 18, color: Colors.blue),
+              child: const Icon(Icons.sync, size: 18, color: Colors.blue),
             ),
             const SizedBox(width: 10),
             const Text(
