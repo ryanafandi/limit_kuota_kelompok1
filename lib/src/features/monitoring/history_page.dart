@@ -51,7 +51,6 @@ class _HistoryPageState extends State<HistoryPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        // ICON + TEXT (aul)
         title: Row(
           children: [
             Container(
@@ -149,7 +148,6 @@ class _HistoryPageState extends State<HistoryPage> {
 
                           const SizedBox(height: 14),
 
-                          //  DATA SECTION(ryan)
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
