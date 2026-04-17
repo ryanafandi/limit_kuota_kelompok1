@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 import 'package:limit_kuota/src/core/data/database_helper.dart';
 import 'package:limit_kuota/src/core/services/intent_helper.dart';
 import 'package:limit_kuota/src/features/monitoring/history_page.dart';
+
 // intan
 class Network extends StatefulWidget {
   const Network({super.key});
@@ -55,7 +56,6 @@ class _NetworkState extends State<Network> {
     return "${mb.toStringAsFixed(2)} MB";
   }
 
-  
   double _getProgress(String value) {
     try {
       double number = double.parse(value.split(" ")[0]);
@@ -104,7 +104,7 @@ class _NetworkState extends State<Network> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        //  ICON + TEXT ()
+        //  ICON + TEXT 
         title: Row(
           children: [
             Container(
@@ -124,7 +124,7 @@ class _NetworkState extends State<Network> {
         ),
 
         actions: [
-          //  HISTORY 
+          //  HISTORY
           IconButton(
             icon: const Icon(Icons.history),
             onPressed: () {
@@ -137,8 +137,7 @@ class _NetworkState extends State<Network> {
         ],
       ),
 
-
-//  BACKGROUND(nazla)
+      //  BACKGROUND(nazla)
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
@@ -187,7 +186,6 @@ class _NetworkState extends State<Network> {
     );
   }
 
-  
   Widget _usageCard(String title, String value, IconData icon, Color color) {
     return Container(
       width: 320,
