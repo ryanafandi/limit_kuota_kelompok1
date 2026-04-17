@@ -88,7 +88,7 @@ class SplashScreen extends StatelessWidget {
                         const SizedBox(height: 10),
 
                         const Text(
-                          "Pantau penggunaan internet dengan mudah & cepat",
+                          "Pantau penggunaan internet harian anda dengan mudah & cepat",
                           textAlign: TextAlign.center,
                           style: TextStyle(color: Colors.white70, fontSize: 14),
                         ),
