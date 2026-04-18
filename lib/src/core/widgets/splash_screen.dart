@@ -10,7 +10,7 @@ class SplashScreen extends StatelessWidget {
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-            colors: [Color(0xFF4FACFE), Color(0xFF00F2FE)],
+            colors: [Color.fromARGB(255, 17, 119, 208), Color.fromARGB(255, 104, 238, 245)],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),
@@ -25,7 +25,7 @@ class SplashScreen extends StatelessWidget {
                 height: 180,
                 width: 180,
                 decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.12),
+                  color: Colors.white.withOpacity(0.15),
                   shape: BoxShape.circle,
                 ),
               ),
@@ -38,7 +38,7 @@ class SplashScreen extends StatelessWidget {
                 height: 220,
                 width: 220,
                 decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.10),
+                  color: const Color.fromARGB(255, 202, 221, 255).withOpacity(0.10),
                   shape: BoxShape.circle,
                 ),
               ),
@@ -120,7 +120,7 @@ class SplashScreen extends StatelessWidget {
                             },
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.white,
-                              foregroundColor: Colors.blue,
+                              foregroundColor: const Color.fromARGB(255, 17, 67, 108),
                               elevation: 0,
                               minimumSize: const Size(double.infinity, 55),
                               shape: RoundedRectangleBorder(
