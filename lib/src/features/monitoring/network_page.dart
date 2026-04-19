@@ -40,11 +40,10 @@ class _NetworkState extends State<Network> {
         mobileBytes,
       );
 
-      // --- Cek limit khusus mobile data 
+      // --- Cek limit khusus mobile data
       await checkLimitAndWarn(mobileBytes);
-      //--------------------------------------//
       // ---
-      
+
       setState(() {
         wifiUsage = _formatBytes(result['wifi']);
         mobileUsage = _formatBytes(result['mobile']);
@@ -94,7 +93,7 @@ class _NetworkState extends State<Network> {
       showDialog(
         context: context,
         builder: (context) => AlertDialog(
-          title: const Text("Batas Kuota Tercapai!"),
+          title: const Text("Batas Kuota Mobile Tercapai!"),
           content: const Text("Penggunaan data Anda sudah mencapai limit."),
           actions: [
             TextButton(
