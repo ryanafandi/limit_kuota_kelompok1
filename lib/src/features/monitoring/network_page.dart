@@ -161,7 +161,7 @@ class _NetworkState extends State<Network> {
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-            colors: [Color(0xFFEFF6FF), Color(0xFF00F2FE)],
+            colors: [Color(0xFFEFF6FF), Color(0xFF00B4DB)],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
           ),
